@@ -17,10 +17,10 @@ function calculatorReal(){
             clickButtons(){
                   document.addEventListener("click",function(event){
                         const arrayButton = Array.from(buttons)
-                        if(arrayButton.indexOf(event.target) !== -1) return calculator.displayView(event.target.textContent)
-                        else if(event.target === buttonClear) return calculator.inputClear()
-                        else if(event.target === buttonResult) return calculator.result(arrayButton)
-                  })
+                        if(arrayButton.indexOf(event.target) !== -1) return this.displayView(event.target.textContent)
+                        else if(event.target === buttonClear) return this.inputClear()
+                        else if(event.target === buttonResult) return this.result(arrayButton)
+                  }.bind(this))
 
             },
             displayView(newButton){
