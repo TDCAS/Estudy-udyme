@@ -30,7 +30,7 @@ function calculatorReal(){
                   return input.value = " "
             },
             result(arrayButton){
-                  return input.value = eval(input.value)  
+                  return input.value = `${eval(input.value)}`     
             }
       }
 }
