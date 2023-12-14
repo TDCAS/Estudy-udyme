@@ -1,0 +1,19 @@
+Sequelize
+
+  Criando migração com name = users
+      npx sequelize migration:create 
+      --name=users
+
+  Apos estar configurando a migration 
+
+  execute para subir a migração no banco
+
+      npx sequelize db:migrate
+
+  para desfazer a migração subida para banco 
+
+      npx sequelize db:migrate:undo
+  
+  para insertar dados 
+  
+    npx sequelize db:seed:all
