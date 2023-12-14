@@ -1,32 +1,35 @@
 /* eslint-disable strict */
 // eslint-disable-next-line lines-around-directive
 'use strict';
-// Migration é ralacionado direto com a base de dado
+// Criando tabela com relacionamento com tabela alunos
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('alunos', {
+    await queryInterface.createTable('fotos', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
-      nome: {
+      originalname: {
         type: Sequelize.STRING,
         allowNull: false,
       },
       filename: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
       },
-      aluno_id {
+      aluno_id: {
         type: Sequelize.INTEGER,
         allowNull: true,
-        Reference: {
+        references: {
           model: 'alunos',
-          key: '10'
-        }
+          key: 'id',
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
       },
       create_at: {
         type: Sequelize.DATE,
@@ -40,6 +43,6 @@ module.exports = {
   },
 
   async down(queryInterface) {
-    await queryInterface.dropTable('alunos');
+    await queryInterface.dropTable('fotos');
   },
 };
