@@ -7,7 +7,7 @@ const router = new Router();
 // router.get('/mostratodos/', loginRequired, controllerUser.index); // Lista todos usuario
 // router.get('/mostraum:id', controllerUser.show); // Lista usuario
 
-router.post('/', controllerUser.create);
+router.post('/', loginRequired, controllerUser.create);
 router.put('/mostraum', loginRequired, controllerUser.update);
 router.delete('/delete/', loginRequired, controllerUser.delete);
 

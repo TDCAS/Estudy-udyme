@@ -1,8 +1,8 @@
 import Sequelize from 'sequelize';
-import databaseconfig from '../config/database';
-import Aluno from '../models/Aluno';
-import User from '../models/User';
-import Foto from '../models/Foto';
+import databaseconfig from './database/config/database';
+import Aluno from './models/Aluno';
+import User from './models/User';
+import Foto from './models/Foto';
 
 const models = [Aluno, User, Foto];
 

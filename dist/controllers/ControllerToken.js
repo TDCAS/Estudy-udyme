@@ -1,5 +1,5 @@
-import jwt from 'jsonwebtoken';
-import User from '../models/User';
+"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _jsonwebtoken = require('jsonwebtoken'); var _jsonwebtoken2 = _interopRequireDefault(_jsonwebtoken);
+var _User = require('../models/User'); var _User2 = _interopRequireDefault(_User);
 
 class ControllerToken {
   async store(req, res) {
@@ -21,7 +21,7 @@ class ControllerToken {
         errors: ['Credencias invalidas'],
       });
     }
-    const user = await User.findOne({ where: { email } });
+    const user = await _User2.default.findOne({ where: { email } });
     if (!user) {
       return res.status(401).json({
         errors: ['Usuario não existe'],
@@ -35,11 +35,11 @@ class ControllerToken {
     }
     console.log(email, password);
     const { id } = user;
-    const token = jwt.sign({ id, email }, process.env.TOKEN_SECRET, {
+    const token = _jsonwebtoken2.default.sign({ id, email }, process.env.TOKEN_SECRET, {
       expiresIn: process.env.TOKEN_EXPIRATION,
     });
     res.json({ token });
   }
 }
 
-export default new ControllerToken();
+exports. default = new ControllerToken();

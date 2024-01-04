@@ -1,8 +1,7 @@
 Sequelize
 
   Criando migração com name = users
-      npx sequelize migration:create 
-      --name=users
+      npx sequelize migration:create --name=users
 
   Apos estar configurando a migration 
 
