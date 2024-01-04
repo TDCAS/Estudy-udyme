@@ -4,15 +4,26 @@ class ControllerUser {
   // eslint-disable-next-line spaced-comment
   //create
   async create(req, res) {
+    /* 
+    URL 
+    {{ _.url }}/users/
+
+    Estrutura do body
+      {
+      "nome":"fuland",
+      "email": "fortes2@gmail.com",
+      "password":"123456"
+      }
+*/
     try {
       const novoUser = await User.create(req.body);
-      const { id, nome, email } = novoUser;
-      return res.json({ id, nome, email });
+      
+      return res.json(novoUser);
       // res.status(401).json({
       //   tudoCerto: true,
       // });
     } catch (e) {
-      return res.status(400).json({ errors: e.errors.map((err) => err.message) });
+      return res.status(400).json({errors: ['erro na requisição']});
     }
   }
 

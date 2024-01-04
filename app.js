@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-import './src/database';
+import './src/index.js';
 import express from 'express';
 import routesHome from './src/routes/routesHome';
 import routesUser from './src/routes/routesUser';

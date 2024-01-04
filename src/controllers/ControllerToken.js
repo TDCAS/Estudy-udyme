@@ -3,6 +3,18 @@ import User from '../models/User';
 
 class ControllerToken {
   async store(req, res) {
+    // URL
+    // {{ _.url }}/tokens/
+
+    // Estrutura do body
+
+    // {
+    //   "email":"fortes2@gmail.com",
+    //   "password": "123456"
+    // }
+    // response 
+    // { token: 'token gerado '}
+
     const { email = '', password = '' } = req.body;
     if (!email || !password) {
       return res.status(401).json({
