@@ -1,9 +1,9 @@
-import Aluno from '../models/Aluno';
-import Foto from '../models/Foto.js'
+"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _Aluno = require('../models/Aluno'); var _Aluno2 = _interopRequireDefault(_Aluno);
+var _Fotojs = require('../models/Foto.js'); var _Fotojs2 = _interopRequireDefault(_Fotojs);
 class ControllerAlunos {
   async cadastraAlunos(req, res) {
     try {
-      const novoAluno = await Aluno.create(req.body);
+      const novoAluno = await _Aluno2.default.create(req.body);
       const {
         nome,
         sobrenome,
@@ -32,7 +32,7 @@ class ControllerAlunos {
   async delete(req, res) {
     try {
       const { id } = req.params;
-      const aluno = await Aluno.findByPk(id);
+      const aluno = await _Aluno2.default.findByPk(id);
       if (!aluno) {
         return res.status(400).json({
           errors: ['Usuario não existe'],
@@ -55,11 +55,11 @@ class ControllerAlunos {
           errors: ['id vazio'],
         });
       }
-      const aluno = await Aluno.findByPk(id,{
+      const aluno = await _Aluno2.default.findByPk(id,{
         attributes: ["id", "nome", "sobrenome", "email", "idade", "peso", "altura"],
-        order: [["id", "DESC"], [Foto, 'id', "DESC"]],
+        order: [["id", "DESC"], [_Fotojs2.default, 'id', "DESC"]],
         include: {
-          model: Foto,
+          model: _Fotojs2.default,
           attributes: ["id","filename","url"]
         }
       });
@@ -78,11 +78,11 @@ class ControllerAlunos {
 
   async mostratodosalunos(req, res) {
     try {
-      const todosalunos = await Aluno.findAll({
+      const todosalunos = await _Aluno2.default.findAll({
         attributes: ["id", "nome", "sobrenome", "email", "idade", "peso", "altura"],
-        order: [["id", "DESC"], [Foto, 'id', "DESC"]],
+        order: [["id", "DESC"], [_Fotojs2.default, 'id', "DESC"]],
         include: {
-          model: Foto,
+          model: _Fotojs2.default,
           attributes: ["id","filename","url"]
         }
       });
@@ -96,7 +96,7 @@ class ControllerAlunos {
     try {
       const { id } = req.params;
 
-      const aluno = await Aluno.findByPk(id);
+      const aluno = await _Aluno2.default.findByPk(id);
 
       if (!aluno) {
         return res.status(400).json({
@@ -111,4 +111,4 @@ class ControllerAlunos {
     }
   }
 }
-export default new ControllerAlunos();
+exports. default = new ControllerAlunos();
