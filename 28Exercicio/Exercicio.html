@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+</head>
+<body>
+      <h1 id="title">`Seu número é 0`</h1>
+      <p id="text"></p>
+      <script>
+            let textP = window.document.getElementById("text")
+            let typedNumber = Number(prompt("Digite um numero"))
+            let titleH1 = window.document.getElementById("title")
+            
+
+            titleH1.innerHTML = `Seu número é ${typedNumber}`
+
+            textP.innerHTML += `Raiz do numero  ${Math.sqrt(typedNumber)} <br/>`
+
+            textP.innerHTML += `O numero ${typedNumber} é inteiro? ${Number.isInteger(typedNumber)} <br/>`
+
+            textP.innerHTML += `Aredondado o numero para baixo ${Math.floor(typedNumber)} <br/>`
+
+            textP.innerHTML += `Aredondado o numero para cima ${Math.ceil(typedNumber)} <br/>`
+
+            textP.innerHTML += `Com duas casa decimais ${typedNumber.toFixed(2)}`
+
+
+
+
+            
+            
+      </script>
+</body>
+</html>
